@@ -25,7 +25,7 @@ class BlackjackTable {
         this.startButton.disabled = false;
         document.getElementById('dealer-value').textContent = '?';
         document.getElementById('player-value').textContent = '0';
-    }
+    }      
 
     createDeck() {
         const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
@@ -123,31 +123,39 @@ class BlackjackTable {
     checkWinner() {
         const playerValue = this.getHandValue(this.playerHand);
         const dealerValue = this.getHandValue(this.dealerHand);
-
+        const winnerMessage = document.getElementById('winner-message');
+        const winnerText = document.getElementById('winner-text');
+    
         if (dealerValue > 21 || (playerValue <= 21 && playerValue > dealerValue)) {
-            alert('You win!');
+            winnerText.textContent = 'You win!';
             this.triggerConfetti();
         } else if (playerValue > 21 || dealerValue >= playerValue) {
-            alert('Dealer wins.');
+            winnerText.textContent = 'Dealer wins.';
         } else {
-            alert("It's a tie!");
+            winnerText.textContent = "It's a tie!";
         }
-
+    
+        winnerMessage.classList.remove('hidden');
         this.endGame();
     }
-
+    
     checkPlayerStatus() {
         const value = this.getHandValue(this.playerHand);
+        const winnerMessage = document.getElementById('winner-message');
+        const winnerText = document.getElementById('winner-text');
+    
         if (value === 21) {
-            alert("Blackjack! You win!");
+            winnerText.textContent = "Blackjack! You win!";
             this.triggerConfetti();
+            winnerMessage.classList.remove('hidden');
             this.endGame();
+    
         } else if (value > 21) {
-            alert("Bust! You lose.");
-            this.triggerConfetti();
+            winnerText.textContent = "Bust! You lose.";
+            winnerMessage.classList.remove('hidden');
             this.endGame();
         }
-    }    
+    }
 
     setButtons(enabled) {
         ['hit-button', 'stand-button', 'split-button'].forEach(id =>
@@ -179,6 +187,11 @@ class BlackjackTable {
         
         this.setButtons(false);
     }
+
+    closePopout() {
+        const winnerMessage = document.getElementById('winner-message');
+        winnerMessage.classList.add('hidden');
+    }
     
     delay(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
 }
@@ -187,7 +200,6 @@ class BlackjackTable {
 const table = new BlackjackTable();
 
 document.getElementById('start-button').addEventListener('click', () => {
-    alert('Game Started');
     table.startGame();
 });
 
@@ -204,6 +216,10 @@ document.getElementById('play-again-button').addEventListener('click', () => {
     table.startGame();
 });
 
-this.splitButton.addEventListener('click', () => {
+document.getElementById('close-winner-message').addEventListener('click', () => {
+    table.closePopout();
+});
+
+table.splitButton.addEventListener('click', () => {
     table.splitHand();
 });

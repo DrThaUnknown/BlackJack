@@ -8,16 +8,24 @@
 </head>
 <body>
     <header>
+        <p id="logo">BlackJack</p>
         <a href="index.html"><button class="basic">Home</button></a>
         <a href="#"><button class="basic">Table</button></a>
         <a href="rules.html"><button class="basic">Rules</button></a>
     </header>
     <main>
+
         <section>
             <h2>Dealer's Cards</h2>
             <ul id="dealer-cards"></ul>
             <p>Value: <span id="dealer-value">?</span></p>
         </section>
+
+        <div id="winner-message" class="hidden">
+            <p id="winner-text"></p>
+            <button id="close-winner-message">Close</button>
+        </div>
+
         <section>
             <h2>Player's Cards</h2>
             <ul id="player-cards"></ul>
