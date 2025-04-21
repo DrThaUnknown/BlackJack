@@ -1,0 +1,29 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "Welcome to the TechWise BlackJack project! This is a simple implementation of the classic card game BlackJack.",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrThaUnknown/BlackJack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DrThaUnknown/BlackJack/issues"
+  },
+  "homepage": "https://github.com/DrThaUnknown/BlackJack#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
