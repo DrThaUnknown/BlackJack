@@ -1,0 +1,235 @@
+/* Table Specific CSS matching original colors */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+section {
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+section h2, section h3 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+header {
+    text-align: end;
+}
+
+/* footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+} */
+
+ul#dealer-cards,
+ul#player-cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+ul#dealer-cards li,
+ul#player-cards li {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1.1em;
+}
+
+.hidden {
+    display: none;
+}
+
+#winner-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    animation: popout 0.3s ease-out;
+}
+
+#winner-message p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+#winner-message button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#winner-message button:hover {
+    background-color: #555;
+}
+
+@keyframes popout {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+#logo {
+    color: #f0f0f0;
+    text-decoration: none;
+    text-align: left;
+    padding: 0px 20px;
+    position: absolute;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 40px;
+    margin: 0;
+    font-family: 'Limelight', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    animation: LogoAnimation 2s linear infinite;
+}
+
+@keyframes LogoAnimation {
+    0% {
+        transform: scale(0.8) ;
+    }
+    50% {
+        transform: scale(1) ;
+    }
+    100% {
+        transform: scale(0.8) ;
+    }
+}
+
+#dealer-value, #player-value {
+    font-weight: bold;
+    color: #333;
+}
+
+#status-message {
+    font-size: 1.2em;
+    color: #007700;
+    margin-top: 10px;
+}
+
+button.basic {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.basic:hover {
+    background-color: #555;
+}
+
+/* button.basic:focus {
+    outline: 2px solid #007700;
+    outline-offset: 2px;
+} */
+
+button.basic:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+#play-again-button {
+    background-color: #333;
+}
+
+#play-again-button:hover {
+    background-color: #555;
+}
+
+.card-img {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card-img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.deal-animation {
+    animation: dealCardAnim 0.5s ease-out;
+}
+
+.reveal-animation {
+    animation: revealCardAnim 0.6s ease-in-out forwards;
+}
+
+@keyframes revealCardAnim {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes dealCardAnim {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
