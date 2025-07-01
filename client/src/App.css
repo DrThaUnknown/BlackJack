@@ -1,0 +1,688 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #000000;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.2s;
+}
+
+/* Main content area */
+.app-main {
+  overflow: auto; /* or scroll, hidden, visible as needed */
+}
+
+/* Cards container */
+.cards-container {
+  overflow-x: auto; /* already set, but you can use overflow: auto; for both axes */
+}
+
+/* Game table */
+.game-table-root {
+  overflow: auto;
+}
+
+/* Login form */
+.login-form {
+  overflow: visible; /* or auto if you expect content to overflow */
+}
+
+/* Register form */
+.register-form {
+  overflow: auto;
+}
+
+/* Home content */
+.home .home-content {
+  overflow: visible;
+}
+
+.button-cen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* App container layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  color: #ffffff;
+
+}
+
+/* Header and nav bar */
+.app-header {
+  position: relative;
+  top: 0;
+  z-index: 10;
+  padding-top: 2rem;
+}
+
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.nav-link {
+  color: #f8f9fa;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #facc15; 
+}
+
+/* Main content area */
+.app-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Login and Register form container */
+.auth-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 2rem 0;
+  background: transparent;
+  z-index: 10;
+  letter-spacing: 2px;
+}
+
+header nav a {
+  color: #c9c9c9;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #ffffff;
+  text-decoration: None;
+}
+
+button:hover {
+  background: #444;
+}
+
+.card-img {
+  width: 90px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: slideInLeft 1s ease forwards;
+}
+
+.card-img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Slide in from left animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.deal-animation {
+  animation: dealCardAnim 0.5s ease-out;
+}
+
+.reveal-animation {
+  animation: revealCardAnim 1.5s ease-in-out forwards;
+}
+
+@keyframes revealCardAnim {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dealCardAnim {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  padding: 10px;
+  gap: 8px;
+  max-width: 100%;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+p, span, label {
+  color: #ddd;
+}
+
+/* === GameTable Layout and Styling === */
+
+.game-table-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  max-width: 1200px;     
+  width: 100%;
+  min-height: 85vh;      
+  /* background-color: #013220; */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  position: relative;
+  padding-top: 2rem;
+  z-index: 1;
+}
+
+
+.table-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #facc15;
+  text-align: center;
+}
+
+.table-area {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+
+.dealer-area,
+.player-area {
+  width: 100%;
+  text-align: center;
+}
+
+.area-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.score-label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #dddddd;
+}
+
+.controls-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.result-text {
+  font-size: 1.3rem;
+  color: #facc15;
+}
+
+.status-message {
+  color: #ccc;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  margin: 0.25rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn-start {
+  background-color: #0f766e;
+  color: white;
+}
+.btn-hit {
+  background-color: #2563eb;
+  color: white;
+}
+.btn-stand {
+  background-color: #f59e0b;
+  color: white;
+}
+.btn-reset {
+  background-color: #991b1b;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.wallet-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.wallet-text {
+  font-size: 1rem;
+  color: #facc15;
+}
+
+.bet-input {
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #111;
+  color: #fff;
+  width: 180px;
+  text-align: center;
+}
+
+/* === Login Form Styles === */
+.login-form {
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 280px;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+.login-form h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #facc15;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #222;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.login-form input::placeholder {
+  color: #888;
+}
+
+.login-form button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #555;
+}
+
+.register-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.register-link a {
+  color: #facc15;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Register form container */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Headings inside form */
+.register-form h3 {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Inputs */
+.register-form input {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #222;
+  color: #fff;
+}
+
+.register-form input::placeholder {
+  color: #888;
+}
+
+/* Button */
+.register-form button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  background: #facc15;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.register-form button:hover {
+  background: #facc15;
+}
+
+/* === Home Page Styles === */
+.home {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 70vh;
+  width: 100%;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.home .home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #facc15;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 24px #000, 0 2px 2px #000;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.home-desc {
+  font-size: 1.125rem;
+  color: #f3f4f6;
+  margin-bottom: 2.5rem;
+  max-width: 36rem;
+  text-align: center;
+}
+
+.home-play-btn {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(90deg, #facc15, #ca8a04);
+  color: #000;
+  font-weight: bold;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.home-play-btn:hover,
+.home-play-btn:focus {
+  background: linear-gradient(90deg, #facc15, #a16207);
+  transform: scale(1.05);
+}
+
+.home-info {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-info-text {
+  color: #fff;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.home-rules-link {
+  color: #facc15;
+  text-decoration: underline;
+  transition: color 0.2s;
+  text-align: center;
+  cursor: pointer;
+}
+
+.home-rules-link:hover,
+.home-rules-link:focus {
+  color: #facc15;
+}
+
+/* == Aurora Style == */
+.aurora-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* === Account Page Styles === */
+.account-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1rem 3rem 1rem;
+  min-height: 70vh;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+}
+
+.account-page-container h1.home-title {
+  margin-bottom: 1.2rem;
+}
+
+.account-page-container h2,
+.account-page-container h3 {
+  color: #facc15;
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+
+.account-page-container p {
+  color: #f3f4f6;
+  font-size: 1.08rem;
+  margin-bottom: 0.5rem;
+}
+
+.account-page-container .home-desc {
+  margin-bottom: 1.5rem;
+}
+
+.account-page-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.2rem;
+  background: #18181b;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.account-page-container th,
+.account-page-container td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.account-page-container th {
+  background: #27272a;
+  color: #facc15;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-bottom: 2px solid #444;
+}
+
+.account-page-container td {
+  color: #e5e7eb;
+  border-bottom: 1px solid #222;
+  font-size: 1rem;
+}
+
+.account-page-container tr:last-child td {
+  border-bottom: none;
+}
+
+.account-page-container tr:hover td {
+  background: #232323;
+}
+
+.account-page-container .error-message {
+  color: #ef4444;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.account-page-container .loading-message {
+  color: #facc15;
+  font-style: italic;
+  margin: 1rem 0;
+}
+/* === User Info Section === */
+.user-info-section {
+  background: #18181b;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0 1.5rem 0;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-info-section h2 {
+  color: #facc15;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.user-info-section p {
+  color: #f3f4f6;
+  font-size: 1.08rem;
+  margin: 0.3rem 0;
+  word-break: break-all;
+}
+
+.user-info-section p span {
+  color: #facc15;
+  font-weight: 600;
+}
